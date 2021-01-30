@@ -1,4 +1,7 @@
+import 'package:ecommerce_ui/components/default_button.dart';
 import 'package:ecommerce_ui/constants.dart';
+import 'package:ecommerce_ui/screens/sign_in/sign_in_screen.dart';
+import 'package:ecommerce_ui/screens/splash/components/splash_content.dart';
 import 'package:ecommerce_ui/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -58,25 +61,13 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     Spacer(
-                      flex: 2,
+                      flex: 3,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: getProportionateScreenHeight(56),
-                      child: FlatButton(
-                        onPressed: () {},
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        color: kPrimaryColor,
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: getProportionateScreenWidth(16),
-                          ),
-                        ),
-                      ),
+                    DefaultButton(
+                      text: "Continue",
+                      press: () {
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
@@ -99,45 +90,6 @@ class _BodyState extends State<Body> {
         color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
       ),
-    );
-  }
-}
-
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key key,
-    this.text,
-    this.image,
-  }) : super(key: key);
-
-  final String text, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Spacer(),
-        Text(
-          "Toko Saya",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-        ),
-        Spacer(
-          flex: 2,
-        ),
-        Image.asset(
-          image,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        ),
-      ],
     );
   }
 }

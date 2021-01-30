@@ -1,4 +1,5 @@
 import 'package:ecommerce_ui/constants.dart';
+import 'package:ecommerce_ui/routes.dart';
 import 'package:ecommerce_ui/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +14,50 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: SplashScreen(),
+      theme: theme(),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
+}
+
+ThemeData theme() {
+  return ThemeData(
+    scaffoldBackgroundColor: Colors.white,
+    fontFamily: "Muli",
+    appBarTheme: AppBarTheme(
+      color: Colors.white,
+      elevation: 0,
+      brightness: Brightness.light,
+      iconTheme: IconThemeData(color: Colors.black),
+      textTheme: TextTheme(
+        headline6: TextStyle(
+          color: Color(0xFFBBBB8B),
+          fontSize: 18,
+        ),
+      ),
+    ),
+    textTheme: TextTheme(
+      bodyText1: TextStyle(color: kTextColor),
+      bodyText2: TextStyle(color: kTextColor),
+    ),
+    inputDecorationTheme: inputDecorationTheme(),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
+}
+
+InputDecorationTheme inputDecorationTheme() {
+  return InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(28),
+      borderSide: BorderSide(color: kTextColor),
+      gapPadding: 10,
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(28),
+      borderSide: BorderSide(color: kTextColor),
+      gapPadding: 10,
+    ),
+  );
 }
