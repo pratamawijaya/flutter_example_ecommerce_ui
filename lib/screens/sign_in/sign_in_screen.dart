@@ -1,4 +1,3 @@
-import 'package:ecommerce_ui/constants.dart';
 import 'package:ecommerce_ui/screens/sign_in/components/body.dart';
 import 'package:flutter/material.dart';
 
