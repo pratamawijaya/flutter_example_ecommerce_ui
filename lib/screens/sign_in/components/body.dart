@@ -1,6 +1,7 @@
 import 'package:ecommerce_ui/components/social_media_button.dart';
 import 'package:ecommerce_ui/constants.dart';
 import 'package:ecommerce_ui/screens/sign_in/components/sign_in_form.dart';
+import 'package:ecommerce_ui/screens/sign_up/sign_up_screen.dart';
 import 'package:ecommerce_ui/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -68,11 +69,15 @@ class Body extends StatelessWidget {
                         fontSize: getProportionateScreenWidth(16),
                       ),
                     ),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                          fontSize: getProportionateScreenWidth(16),
-                          color: kPrimaryColor),
+                    GestureDetector(
+                      onTap: () =>
+                          Navigator.pushNamed(context, SignUpScreen.routeName),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            fontSize: getProportionateScreenWidth(16),
+                            color: kPrimaryColor),
+                      ),
                     ),
                   ],
                 ),
